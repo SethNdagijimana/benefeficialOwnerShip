@@ -24,7 +24,7 @@ const ClientInfo = () => {
     return (
         <>
            <div className="mt-6 p-4">
-           <h2 className="text-bold text-center">Declaration of Ultimate Beneficialt OwnerShip(UBO)</h2>
+           <h2 className="text-bold text-center">Declaration of Ultimate Beneficial OwnerShip(UBO)</h2>
            <div className="flex items-center justify-between font-bold">
               <h3>Business Details</h3>
            
@@ -179,7 +179,7 @@ const ClientInfo = () => {
              </form>
 
              <div className="w-[300px] mx-auto bg-black rounded-2xl h-12  p-4 flex items-center justify-center">
-                  <button  type="button" className="text-white w-full">Save Information</button>
+                  <button  type="button" className="text-white w-full">Next</button>
         </div>
         
               </div>
