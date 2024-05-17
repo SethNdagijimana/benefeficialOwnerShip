@@ -24,7 +24,7 @@ const ClientInfo = () => {
     return (
         <>
            <div className="mt-6 p-4">
-           <h2 className="text-bold text-center">Declaration of Ultimate Beneficialt OwnerShip(UBO)</h2>
+           <h2 className="text-bold text-center">Declaration of Ultimate Beneficial OwnerShip(UBO)</h2>
            <div className="flex items-center justify-between font-bold">
               <h3>Business Details</h3>
            
