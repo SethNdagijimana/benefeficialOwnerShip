@@ -51,6 +51,15 @@ const ClientInfo = () => {
     }));
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    console.log("Form data submitted:", businessDetails, legalRepDetails);
+   
+  };
+
+
+
   const businessLabels = [
     "Name of the business", "TIN Number", "Business Nature", "Business Location",
     "Registration", "Country of Origin", "Date"
@@ -69,7 +78,8 @@ const ClientInfo = () => {
         <h3 className="text-[#014D99]">Legal Representative Details</h3>
       </div>
       <div className="grid grid-cols-2 gap-20 p-8 border mt-5">
-        <form className="grid grid-cols-2 gap-4">
+
+        <form className="grid grid-cols-2 gap-4" onSubmit={handleSubmit}>
           {businessLabels.map((label, index) => (
             <div className="mb-6" key={index}>
               <FormField
@@ -81,7 +91,9 @@ const ClientInfo = () => {
             </div>
           ))}
         </form>
-        <form>
+
+
+        <form onSubmit={handleSubmit}>
           {legalRepLabels.map((label, index) => (
             <div className="mb-6" key={index}>
               <FormField
@@ -104,6 +116,8 @@ const ClientInfo = () => {
         </div>
       )}
     </div>
+
+    
   );
 };
 

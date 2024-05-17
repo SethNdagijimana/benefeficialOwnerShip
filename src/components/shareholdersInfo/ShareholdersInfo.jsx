@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import FormField from "../FormField/FormField";
+import OwnerInfo from "../ownerInfo/OwnerInfo";
 
 const ShareholdersInfo = () => {
     const [formData, setFormData] = useState([
@@ -35,6 +36,7 @@ const ShareholdersInfo = () => {
             phoneNumber: "",
             residence: ""
         }
+        
     ]);
 
     const handleChange = (index, fieldName, value) => {
@@ -46,6 +48,27 @@ const ShareholdersInfo = () => {
             };
             return updatedFormData;
         });
+    };
+
+    const [showNextComponent, setShowNextComponent] = useState(false);
+    const shareholdersInfoRef = useRef(null);
+  
+    useEffect(() => {
+      if (showNextComponent && shareholdersInfoRef.current) {
+        shareholdersInfoRef.current.scrollIntoView({ behavior: "smooth" });
+      }
+    }, [showNextComponent]);
+  
+    const handleNext = () => {
+      setShowNextComponent(true);
+    };
+    
+    const isFormEmpty = formData.some(data => Object.values(data).some(value => value === ""));
+
+    const handleSaveInformation = () => {
+        
+        console.log("Form data saved:", formData);
+        
     };
 
     return(
@@ -60,7 +83,7 @@ const ShareholdersInfo = () => {
             </div>
 
             <div className="mt-1">
-                <form className="border-2 border-black">
+                <form className="border-2 border-black" onSubmit={handleSaveInformation}>
                     <table className="table-auto w-full border-collapse border border-black">
                         <thead>
                             <tr>
@@ -111,8 +134,19 @@ const ShareholdersInfo = () => {
                     <h4>If the UBO is a company, establish the last natural person who is ultimate beneficial owner  
                     </h4>
 
-                    <button className="bg-[#014D99] text-white h-8 text-center p-1 rounded-2xl">Click Here to establish the last natural Person</button>
+                    <div ref={shareholdersInfoRef}>
+                    <button className="bg-[#014D99] text-white h-8 text-center p-1 rounded-2xl" onClick={handleNext}>Click Here to establish the last natural Person</button>
+                    </div>
                 </div>
+
+                {showNextComponent && (
+        <div className="mt-6 transition-opacity duration-300 ease-in-out opacity-100">
+          <OwnerInfo />
+        </div>
+      )}
+           <div className="w-[300px] mx-auto bg-[#014D99] rounded-2xl h-12 p-4 flex items-center justify-center mt-8" >
+                <button type="button" className={`text-white w-full ${isFormEmpty ? 'opacity-50 cursor-not-allowed' : ''}`} disabled={isFormEmpty}>SAVE</button>
+            </div>
             </div>
         </>
     );
