@@ -1,5 +1,6 @@
 import './App.css';
 import ClientInfo from './components/clientInfo/ClientInfo';
+import Footer from './components/footer/Footer';
 import Logo from './components/logo/Logo';
 
 function App() {
@@ -10,6 +11,10 @@ function App() {
       </div>
       
       <ClientInfo />
+
+        <div>
+          <Footer />
+        </div>
 
     </main>
   );
