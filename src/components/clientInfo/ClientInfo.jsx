@@ -179,7 +179,7 @@ const ClientInfo = () => {
              </form>
 
              <div className="w-[300px] mx-auto bg-black rounded-2xl h-12  p-4 flex items-center justify-center">
-                  <button  type="button" className="text-white w-full">Save Information</button>
+                  <button  type="button" className="text-white w-full">Next</button>
         </div>
         
               </div>
